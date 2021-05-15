@@ -68,7 +68,7 @@ class CandidatesTest extends TestCase
     public function testUpdate()
     {
         $req = $this->createRequest('PUT', '/candidates/' . self::$id);
-        $request = $req->withParsedBody(['first_name' => 'Emma']);
+        $request = $req->withParsedBody(['first_name' => 'Emma','last_name' => 'Smith']);
         $response = $this->getAppInstance()->handle($request);
 
         $result = (string) $response->getBody();
@@ -77,6 +77,7 @@ class CandidatesTest extends TestCase
         $this->assertStringContainsString('id', $result);
         $this->assertStringNotContainsString('Henri', $result);
         $this->assertStringContainsString('Emma', $result);
+        $this->assertStringContainsString('Smith', $result);
         $this->assertStringNotContainsString('error', $result);
     }
 

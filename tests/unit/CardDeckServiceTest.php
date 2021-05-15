@@ -14,8 +14,8 @@ class CardDeckServiceTest extends TestCase
         $cardDeck = CardDeckService::getDeck();
 
         $this->assertCount(52, $cardDeck);
-        $this->assertEquals('4S', $cardDeck[2]);
-        $this->assertEquals('2H', $cardDeck[13]);
+        $this->assertEquals('3S', $cardDeck[1]);
+        $this->assertEquals('3H', $cardDeck[14]);
     }
 
     public function testGetShuffledDeck()
@@ -23,8 +23,8 @@ class CardDeckServiceTest extends TestCase
         $cardDeck = CardDeckService::getShuffledDeck(CardDeckService::getDeck());
 
         $this->assertCount(52, $cardDeck);
-        $this->assertFalse('4S' === $cardDeck[2]);
-        $this->assertFalse('2H' === $cardDeck[13]);
+        $this->assertFalse('3S' === $cardDeck[1]);
+        $this->assertFalse('3H' === $cardDeck[14]);
     }
 
 }
